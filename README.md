@@ -15,8 +15,8 @@ We are in the process of migrating legacy databases to AWS. The legacy databases
 * Do your best with the information available.
 
 ## Bonus Points
-* Provision the project in AWS an provide access to review.
-* Documentation - architecture diagrams, RFCs, etc.
+* Provision the project in AWS and provide access to review (AWS Free Tier is helpful here).
+* Documentation - architecture diagrams, Technical specs, etc.
 * Alternative solution to this type of schema and a possible path to migrate it.
 
 ## Submission
