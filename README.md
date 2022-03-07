@@ -2,45 +2,23 @@
 Welcome to Aspen Capital's Data Engineering challenge. This assignment will help us better assess your technical skills. We recommend that you focus on the requirements listed below and if time permitting - work on any additional features (of your own choosing).
 
 ## Background
-One aspect of this job is the forecasting of payments, and for this exercise, we need to create a payment schedule. Part of the schedule is projected, and the other is actual payments. We need to line up projection and actual payments given the provided database schema.
+We are in the process of migrating legacy databases to AWS. The legacy databases are located on prem in a colocation facility. We need to migrate the data in a cost effective way and be able to operate it with a small ops team. We need a pipeline that will sync the data to an AWS data lake and then ETL it into RDS to provide the data source for the new applications being built. While the migration is happening the AWS and on prem data need to stay in sync (some delay is allowed. Part of the submission is to decide what delay makes sense).
 
 ## Requirements
 ### High Level
-* Given the provided scripts (./data/init.sql), create software that will display the following chart:
-
-### Example (given sample data)
-|Projection | Month/Year  | Activity   | Estimated | Actual | Estimated Balance
-|---------- | ----------- | --------   | --------- | ------ | ----------------- |
-|1|
-|| April 2019  | Deposit: Insurance    | $54.95    |
-||             | Withdrawal: Insurance | $-1.81   | $-2.04    | $214.85
-|| May 2019    | Deposit: Insurance    | $54.95    |
-||             | Withdrawal: Insurance | $-1.81   | $-2.27    | $267.99
-|| June 2019   | Deposit: Insurance    | $54.95    |
-||             | Withdrawal: Insurance | $-1.81   | $-2.18    | $321.13
-|| July 2019   | Deposit: Insurance    | $54.95    |
-||             | Withdrawal: Insurance | $-1.81   | $-2.26    | $374.27
-|| August 2019 | Deposit: Insurance    | $54.95    |
-||             | Withdrawal: Insurance | $-1.81   | $-9.38    | $427.41
-||             | Withdrawal: Insurance |          | $-9.38    |
-||             | Withdrawal: Insurance |          | $-9.38    |
-||......|......|......|......
-||......|......|......|......
-|2|......|......|......|......
-||......|......|......|......
-||......|......|......|......
+*The solution needs to be provided as IaC for the infrastructure necessary for the pipeline
+*Cost estimates need to be provided to show how much the solution will cost to operate (AWS cost calcuator is fine for this)
 
 ## Hints
-* You can assume there are only 12 months of data in a single projection.
-* This needs to work on a large number of rows (Only example data provided).
-* It is ok to choose any database technology.
+* Using native managed AWS services is preferred over a lot of custom code.
+* It is ok to choose any technology you like but you need to justify the choice.
 * Do your best with the information available.
 
 ## Bonus Points
-* Provide the ability to run your solution.
-* High level data injection design.
+* Provision the project in AWS an provide access to review.
+* Documentation - architecture diagrams, RFCs, etc.
 * Alternative solution to this type of schema and a possible path to migrate it.
 
 ## Submission
-* Your submission should be accessible in a public git repository that includes a README.md with all the pertinent information of how to run your application. The expectation is that we can easily follow the steps provided and run the application without much leg/guesswork.
+* Your submission should be accessible in a public git repository that includes a README.md with all the information you want to include. The expectation is that we can easily follow the steps provided without much leg/guesswork.
 * If your submission does include additional artifacts that are not represented within the repository - the README should provide information on how to retrieve and access these items.
