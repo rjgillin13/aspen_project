@@ -6,8 +6,8 @@ We are in the process of migrating legacy databases to AWS. The legacy databases
 
 ## Requirements
 ### High Level
-*The solution needs to be provided as IaC for the infrastructure necessary for the pipeline
-*Cost estimates need to be provided to show how much the solution will cost to operate (AWS cost calcuator is fine for this)
+* The solution needs to be provided as IaC for the infrastructure necessary for the pipeline
+* Cost estimates need to be provided to show how much the solution will cost to operate (AWS cost calcuator is fine for this)
 
 ## Hints
 * Using native managed AWS services is preferred over a lot of custom code.
