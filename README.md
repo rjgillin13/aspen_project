@@ -6,6 +6,7 @@ We are in the process of migrating legacy databases to AWS. The legacy databases
 
 ## Requirements
 ### High Level
+* Using the xlsx data file in the data directory of this repository create an ETL pipeline that will match this target data model - https://dbdiagram.io/d/62268eff61d06e6eadbc43bc
 * The solution needs to be provided as IaC for the infrastructure necessary for the pipeline
 * Cost estimates need to be provided to show how much the solution will cost to operate (AWS cost calcuator is fine for this)
 
