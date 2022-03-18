@@ -1,5 +1,5 @@
 ## Introduction
-Welcome to Aspen Capital's Data Engineering challenge. This assignment will help us better assess your technical skills. We recommend that you focus on the requirements listed below and if time permitting - work on any additional features (of your own choosing).
+Welcome to Aspen Capital's Data Engineering challenge. This assignment will help us assess your technical skills. We recommend that you focus on the requirements listed below and if time permitting - work on any additional features of your own choosing. We are using AWS so that is the preferred cloud provider for this project, but if you aren't familiar with AWS, feel free to use an alternate cloud provider you are familiar with.
 
 ## Background
 We are in the process of migrating legacy databases to AWS. The legacy databases are located on prem in a colocation facility. We need to migrate the data in a cost effective way and be able to operate it with a small ops team. We need a pipeline that will sync the data to an AWS data lake and then ETL it into a datastore (e.g RDS, Athena, etc.) to provide the data source for the new applications being built. While the migration is happening the AWS and on prem data need to stay in sync (some delay is allowed. Part of the submission is to decide what delay makes sense).
