@@ -20,7 +20,7 @@ dist/
 *.jar
 
 # Package files
-scrips/config.py
+/config.py
 
 # Maven
 target/
