@@ -3,14 +3,8 @@ import boto3
 from botocore.exceptions import ClientError
 import os
 import psycopg2
-import sqlite3
-
-# from google.cloud.bigquery.dbapi import connect
-# from ploomber.clients import (DBAPIClient, GCloudStorageClient,
-#                               SQLAlchemyClient)
-
-# NOTE: you may use db or db_sqlalchemy. Both work the same
-
+import sys
+from sqlalchemy import create_engine
 
 def upload_file(file_name, bucket, object_name=None):
     """Upload a file to an S3 bucket
@@ -34,6 +28,7 @@ def upload_file(file_name, bucket, object_name=None):
         return False
     return True
 
+
 def run_glue_job(job_name, arguments = {}):
     session = boto3.session.Session()
     glue_client = session.client('glue')
@@ -46,21 +41,27 @@ def run_glue_job(job_name, arguments = {}):
         raise Exception( "Unexpected error in run_glue_job: " + e.__str__())
 
 
-def connect_mssql(host, port, user, db, password):
-    '''Connect to RDS msql via psycopg2
+def connect_postgresql(host, port, user, db, password):
+    '''Connect to RDS postgresql via psycopg2
 
     params:
         host (str): Url of client to RDS database
         port (int): Port to connect on
         user (string): Username for db
         db (string): Name of database
-        password (string): Result of AWS session token
+        password (string): User Password
     returns:
         conn: psycopg2 connection object
     '''
-
-    conn = psycopg2.connect(host=host, port=port, user=user, database=db, password=password, sslmode='require', sslrootcert='SSLCERTIFICATE')
-
+    conn = None
+    try:
+        # connect to the PostgreSQL server
+        print('Connecting to the PostgreSQL database...')
+        conn = psycopg2.connect(host=host, port=port, user=user, password=password, database=db)
+    except (Exception, psycopg2.DatabaseError) as error:
+        print(error)
+        sys.exit(1)
+    print("Connection successful")
     return conn
 
 
@@ -101,25 +102,3 @@ def aws_connect(aws_access_key, aws_secret_key, region, db_name, port, username)
 
     return token
 
-
-    # def db_sqlalchemy():
-        #     """Client to send queries to BigQuery (uses SQLAlchemy as backend)
-        #     """
-        #     # you may pass bigquery://{project-name} to use a specific project,
-        #     # otherwise thiw will use the default one
-        #     return SQLAlchemyClient('bigquery://')
-        #
-        #
-        # def storage():
-        #     """Client to upload files to Google Cloud Storage
-        #     """
-        #     # ensure your bucket_name matches
-        #     return GCloudStorageClient(bucket_name='ploomber-bucket',
-        #                                parent='my-pipeline')
-        #
-        #
-        # def metadata():
-        #     """
-        #     (Optional) client to store SQL tasks metadata to enable incremental builds
-        #     """
-        #     return DBAPIClient(sqlite3.connect, dict(database='products/metadata.db'))
