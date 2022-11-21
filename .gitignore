@@ -16,8 +16,11 @@ dist/
 # Log files
 *.log
 
-# Package files
+# config file
 *.jar
+
+# Package files
+scrips/config.py
 
 # Maven
 target/
